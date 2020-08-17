@@ -16,7 +16,7 @@ var commentRoutes          = require("./routes/comments"),
 	authRoutes             = require("./routes/authentication")
 
 // seedDB(); //seed the database	
-mongoose.connect("mongodb://localhost:27017/yelp_camp", {
+mongoose.connect("mongodb+srv://VidithAgarwal:<password>@cluster0.zxf3z.mongodb.net/<dbname>?retryWrites=true&w=majority", {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
 })
