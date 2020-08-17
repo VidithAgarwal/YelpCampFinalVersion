@@ -16,7 +16,7 @@ var commentRoutes          = require("./routes/comments"),
 	authRoutes             = require("./routes/authentication")
 
 // seedDB(); //seed the database	
-mongoose.connect("mongodb+srv://VidithAgarwal:Classmate123!!@cluster0.cnsf7.mongodb.net/YelpCamp?retryWrites=true&w=majority", {
+mongoose.connect(process.env.DATABASEURL, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
 })
@@ -55,4 +55,5 @@ app.use(authRoutes);
 var port = process.env.PORT || 3000;
 app.listen(port, () => {
 	console.log("YelpCamp Server has started!");
+	console.log(process.env.DATABASEURL);
 })
