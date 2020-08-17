@@ -16,7 +16,7 @@ var commentRoutes          = require("./routes/comments"),
 	authRoutes             = require("./routes/authentication")
 
 // seedDB(); //seed the database	
-mongoose.connect("mongodb+srv://VidithAgarwal:Classmate123!!@cluster0.zxf3z.mongodb.net/<dbname>?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://VidithAgarwal:<password>@cluster0.cnsf7.mongodb.net/<dbname>?retryWrites=true&w=majority", {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
 })
