@@ -52,6 +52,7 @@ router.get("/:comment_id/edit", middleware.checkCommentOwnership, (req, res)=> {
 		})
 })
 
+//Update Comment Logic
 router.put("/:comment_id", middleware.checkCommentOwnership, (req, res)=> {
 	Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment)
 		.then((comment)=> {
@@ -63,6 +64,7 @@ router.put("/:comment_id", middleware.checkCommentOwnership, (req, res)=> {
 		})
 })
 
+// Delete Comment route
 router.delete("/:comment_id", middleware.checkCommentOwnership, (req, res)=> {
 	Comment.findByIdAndRemove(req.params.comment_id)
 		.then(()=> {
