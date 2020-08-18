@@ -44,10 +44,15 @@ router.get("/new", middleware.isLoggedIn, (req, res) => {
 router.get("/:id", (req, res) => {
 	Campground.findById(req.params.id).populate("comments").exec()
 		.then((foundCampground) => {
+			if(!foundCampground){
+				req.flash("error", "CAMPGROUND NOT FOUND!");
+				return res.redirect("/campgrounds");
+			}
 			res.render("campgrounds/show", {campground: foundCampground});
 		})
-	.catch((error) => {
-			console.log("ERROR!!!");
+		.catch((error) => {
+			req.flash("error", "CAMPGROUND NOT FOUND!");
+			res.redirect("/campgrounds");
 		})
 })
 
@@ -56,6 +61,10 @@ router.get("/:id/edit", middleware.checkCampgroundOwnership,(req, res)=> {
 	Campground.findById(req.params.id)
 		.then((foundCampground)=> {				
 			res.render("campgrounds/edit", {campground: foundCampground})
+		})
+		.catch(()=> {
+			req.user("error", "Campground not found");
+			res.redirect("/campgrounds");
 		})
 })
 

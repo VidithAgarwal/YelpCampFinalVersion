@@ -18,14 +18,15 @@ router.get("/register", (req, res)=> {
 // SignUp logic Route
 router.post("/register", (req, res) => {
 	User.register(new User({username: req.body.username}), req.body.password)
-		.then(()=> {
+		.then((user)=> {
 			passport.authenticate("local")(req, res, ()=> {
+				req.flash("success", "Welcome to YelpCamp" + user.username);
 				res.redirect("/campgrounds");
 			})
 		})
 		.catch((err)=> {
-			console.log(err);
-			return res.render("register");
+			req.flash("error", err.message);
+			return res.redirect("/register");
 		})
 })
 
@@ -44,6 +45,7 @@ router.post("/login",passport.authenticate("local", {
 //logout route
 router.get("/logout", (req, res)=> {
 	req.logout();
+	req.flash("success", "LOGGED YOU OUT!!")
 	res.redirect("/campgrounds");
 })
 
