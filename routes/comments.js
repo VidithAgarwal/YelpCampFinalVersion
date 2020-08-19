@@ -69,7 +69,7 @@ router.get("/:comment_id/edit", middleware.checkCommentOwnership, (req, res)=> {
 router.put("/:comment_id", middleware.checkCommentOwnership, (req, res)=> {
 	Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment)
 		.then((comment)=> {
-			req.flash("success", "Edit successful")
+			req.flash("success", "Successfully Updated Comment")
 			res.redirect("/campgrounds/" + req.params.id);
 		})
 		.catch((err) => {

@@ -73,6 +73,7 @@ router.get("/:id/edit", middleware.checkCampgroundOwnership,(req, res)=> {
 router.put("/:id", middleware.checkCampgroundOwnership, (req, res)=> {
 	Campground.findByIdAndUpdate(req.params.id, req.body.campground)
 		.then((updateCampground)=> {
+			req.flash("success", "Successfully Updated")
 			res.redirect("/campgrounds/" + updateCampground._id);
 		})
 		.catch((err) => {
@@ -85,6 +86,7 @@ router.put("/:id", middleware.checkCampgroundOwnership, (req, res)=> {
 router.delete("/:id", middleware.checkCampgroundOwnership, (req, res)=> {
 	Campground.findByIdAndRemove(req.params.id)
 		.then((campgroundRemoved)=> {
+			req.flash("success", "Succesfully deleted")
 			res.redirect("/campgrounds");
 		})
 		.catch((err)=> {
