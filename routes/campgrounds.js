@@ -8,7 +8,7 @@ var express    = require("express"),
 router.get("/", (req, res) => {
 	Campground.find({})
 	.then((Campgrounds) => {
-		res.render("campgrounds/Index", {campgrounds: Campgrounds});
+		res.render("campgrounds/Index", {campgrounds: Campgrounds, page: "campgrounds"});
 	})
 	.catch((error) => {
 		console.log(error.message);

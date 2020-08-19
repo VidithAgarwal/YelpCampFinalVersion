@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
 
 //Register Form Route
 router.get("/register", (req, res)=> {
-	res.render("register");
+	res.render("register", {page: "register"});
 })
 
 
@@ -32,7 +32,7 @@ router.post("/register", (req, res) => {
 
 // Show login form route
 router.get("/login", (req, res)=> {
-	res.render("login");
+	res.render("login", {page: "login"});
 })
 
 // Login logic route
