@@ -21,7 +21,7 @@ router.post("/register", (req, res) => {
 	User.register(new User({username: req.body.username, firstname: req.body.firstname, lastname: req.body.lastname, email: req.body.email, avatar: req.body.avatar}), req.body.password)
 		.then((user)=> {
 			passport.authenticate("local")(req, res, ()=> {
-				req.flash("success", "Successfully Signed Up! Nice to meet you " + user.username);
+				req.flash("success", "Successfully Signed Up! Nice to meet you " + user.firstname);
 				res.redirect("/campgrounds");
 			})
 		})
