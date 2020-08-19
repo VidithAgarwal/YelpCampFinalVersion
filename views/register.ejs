@@ -3,30 +3,61 @@
 <div class = "log container">
 	<div class = "jumbotron">
 			<div class = "text">
-				<h2 id = "h2">Sign up</h2>
+				<h2 id = "h2">Register</h2>
+				<p class = "hint-text">Create your account. It's free and only takes a minute</p>
 			</div>
 			<form class="form-horizontal" action = "/register" method = "POST">
 				<div class = "container form">
-					<div class = "row">
-						<div class = "col-md-12">
 							<div class="text form-group form-group-lg">
-								<div class = "input-group">
-									<span class="input-group-addon"><i class="fa fa-user"></i></span>
-    								<input class = "form-control" type = "text" placeholder = "Username" name = "username">
-  								</div>
-							</div>
-						</div>
-					</div>
-					<div class = "row">
-						<div class = "col-md-12">
-							<div class="text form-group form-group-lg">
-								<div class = "input-group">
-									<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-    								<input class = "form-control" type = "password" placeholder = "Password" name = "password">
+								<div class="row">
+									<div class="col-md-6">
+											<input type="text" class="form-control" name="firstname" placeholder="First Name" required="required">
+									</div>
+									<div class="col-md-6">
+											<input type="text" class="form-control" name="lastname" placeholder="Last Name" required="required">
+									</div>        	
 								</div>
-  							</div>
-						</div>
-					</div>	
+							</div>
+							<div class="text form-group form-group-lg">
+								<div class = "row">
+									<div class = "col-md-12">
+										<div class = "input-group">
+											<span class="input-group-addon"><i class="fa fa-envelope" required = "required"></i></span>
+    										<input class = "form-control" type = "email" placeholder = "Email" name = "email" required = "required">
+										</div>
+  									</div>
+								</div>
+							</div>
+							<div class="text form-group form-group-lg">
+								<div class = "row">
+									<div class = "col-md-12">
+										<div class = "input-group">
+											<span class="input-group-addon"><i class="fa fa-user" required = "required"></i></span>
+    										<input class = "form-control" type = "text" placeholder = "Username" name = "username"required = "required">
+										</div>
+  									</div>
+								</div>
+							</div>
+							<div class="text form-group form-group-lg">
+								<div class = "row">
+									<div class = "col-md-12">
+										<div class = "input-group">
+											<span class="input-group-addon"><i class="fa fa-user-circle" required = "required"></i></span>
+    										<input class = "form-control" type = "text" placeholder = "Avatar url" name = "avatar">
+										</div>
+  									</div>
+								</div>
+							</div>
+							<div class="text form-group form-group-lg">
+								<div class = "row">
+									<div class = "col-md-12">
+										<div class = "input-group">
+											<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+    										<input class = "form-control" type = "password" placeholder = "Password" name = "password" required = "required">
+										</div>
+  									</div>
+								</div>
+							</div>	
 				</div>
 				<button class = "btn btn-lg btn-primary btn-block">Sign up</button>
 			</form>

@@ -25,7 +25,7 @@
 						<%= campground.description %>
 					</p>
 					<p>
-						<em>Submitted By: <%= campground.author.username %>, <%= moment(campground.createdAt).fromNow() %></em>
+						<em>Submitted By: <a href = "/users/<%= campground.author.id %>"><%= campground.author.username %></a>, <%= moment(campground.createdAt).fromNow() %></em>
 					</p>
 					<% if (currentUser && campground.author.id.equals(currentUser._id)) { %>
 						<a class = "btn btn-warning btn-xs" href = "/campgrounds/<%= campground._id %>/edit">Edit</a>

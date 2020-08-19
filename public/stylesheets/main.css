@@ -44,7 +44,7 @@
 }
 
 .login {
-	width: 150%;
+	width: 100%;
 }
 
 .col-md-12 {
@@ -57,6 +57,7 @@
 
 .input-group-addon .fa {
     font-size: 18px;
+	width: 17px;
 }
 
 .jumbotron #p {
@@ -72,4 +73,14 @@
 	font-weight: 600;
 }
 
+.text p {
+	font-size: 17px;
+	margin-bottom: 30px;
+} 
+
+.hint-text{	
+	font-size: 15px;
+	color: #999;
+	text-align: center;
+}
 
