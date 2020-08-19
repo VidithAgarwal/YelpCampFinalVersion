@@ -6,13 +6,34 @@ var express    = require("express"),
 
 //Index - To Show all the campgrounds
 router.get("/", (req, res) => {
-	Campground.find({})
-	.then((Campgrounds) => {
-		res.render("campgrounds/Index", {campgrounds: Campgrounds, page: "campgrounds"});
-	})
-	.catch((error) => {
-		console.log(error.message);
-	})
+	if(req.query.search) {
+		const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+		
+		Campground.find({name: regex})
+			.then((Campgrounds) => {
+				var noMatch;
+				if(Campgrounds.length < 1) {
+					noMatch = "No campgrounds match that query, please try again!"
+					
+				} 
+				res.render("campgrounds/Index", {campgrounds: Campgrounds, page: "campgrounds", noMatch: noMatch});
+			})
+			.catch((error) => {
+				
+				console.log(error.message);
+			})
+	}else {
+		Campground.find({})
+			.then((Campgrounds) => {
+			
+				var noMatch;
+				res.render("campgrounds/Index", {campgrounds: Campgrounds, page: "campgrounds", noMatch: noMatch});
+			})
+			.catch((error) => {
+				console.log(error.message);
+			})
+	}
+	
 	
 })
 
@@ -94,5 +115,9 @@ router.delete("/:id", middleware.checkCampgroundOwnership, (req, res)=> {
 			res.redirect("back");
 		})
 })
+
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 
 module.exports = router;
