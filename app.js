@@ -5,7 +5,7 @@ var Campground             = require("./models/campgrounds"),
 	passport               = require("passport"),
 	LocalStratergy         = require("passport-local"),
 	Comment                = require("./models/comments"),
-	express 	           = require("express"),
+	express 			   = require("express"),             
 	seedDB                 = require("./seeds"),
 	flash                  = require("connect-flash"),
 	User                   = require("./models/users"),
@@ -34,6 +34,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
+app.locals.moment = require("moment");
 
 //Passport Configuration
 app.use(require("express-session")({
@@ -49,7 +50,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use(function(req, res, next){
 	res.locals.currentUser = req.user;
 	res.locals.error       = req.flash("error");
-	res.locals.success      = req.flash("success");
+	res.locals.success     = req.flash("success");
 	next();
 })
 
