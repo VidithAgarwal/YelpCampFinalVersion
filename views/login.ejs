@@ -1,11 +1,36 @@
 <%- include("./partials/header") %>
-<h1>
-	Login!
-</h1>
 
-<form action = "/login" method = "POST">
-	<input type = "text" placeholder = "username" name = "username">
-	<input type = "password" placeholder = "password" name = "password">
-	<button>Login</button>
-</form>
+<div class = "log container">
+	<div class = "jumbotron tree">
+			<div class = "text">
+				<h2 id = "h1">Sign in</h2>
+			</div>
+			<form class="form-horizontal" action = "/login" method = "POST">
+				<div class = "container form">
+					<div class = "row">
+						<div class = "col-md-12">
+							<div class="text form-group form-group-lg">
+								<div class = "input-group">
+									<span class="input-group-addon"><i class="fa fa-user"></i></span>
+    								<input class = "form-control" type = "text" placeholder = "Username" name = "username">
+  								</div>
+							</div>
+						</div>
+					</div>
+					<div class = "row">
+						<div class = "col-md-12">
+							<div class="text form-group form-group-lg">
+								<div class = "input-group">
+									<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+    								<input class = "form-control" type = "password" placeholder = "Password" name = "password">
+								</div>
+  							</div>
+						</div>
+					</div>	
+				</div>
+				<button class = "btn btn-lg btn-primary btn-block">Sign in</button>
+			</form>
+		<p id = "p" class="text-center text-muted text-small">Don't have an account? <a href="/register">Sign up here!</a></p>
+	</div>
+</div>
 <%- include("./partials/footer") %>

@@ -13,3 +13,63 @@
 #delete {
 	display: inline;
 }
+
+.log {
+	width: 30%;
+	margin-top: 7.0em;
+}
+
+.text {
+	text-align: center;
+	margin-top: 0;
+}
+
+#h1 {
+	margin-bottom: 20px;
+	margin-top: 0;
+	font-size: 2.6em;
+	color: black;
+	font-weight: 600;
+	
+}
+
+.container .jumbotron, .container-fluid .jumbotron .tree {
+	background-color: #f7f5f5;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.btn-block.btn-primary {
+	background-color: #1447ff;
+}
+
+.login {
+	width: 150%;
+}
+
+.col-md-12 {
+	width: 100%;
+}
+
+.container.form {
+	width: 100%;
+}
+
+.input-group-addon .fa {
+    font-size: 18px;
+}
+
+.jumbotron #p {
+	font-size: 13px;
+	margin-top: 15px;
+}
+
+#h2 {
+	margin-bottom: 20px;
+	margin-top: 0;
+	font-size: 2.6em;
+	color: black;
+	font-weight: 600;
+}
+
+
